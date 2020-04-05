@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_05_074559) do
+ActiveRecord::Schema.define(version: 2020_04_05_081049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2020_04_05_074559) do
     t.text "content"
     t.integer "category", default: 0
     t.boolean "premium", default: false
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_articles_on_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -84,4 +86,5 @@ ActiveRecord::Schema.define(version: 2020_04_05_074559) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "articles", "locations"
 end

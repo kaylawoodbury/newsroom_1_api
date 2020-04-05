@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   namespace :api do 
     resources :articles, only: [:index, :show, :create]
     resources :subscriptions, only: [:create], constraints: { format: 'json'}
+    resources :locations, only: [:index]
   end
 end

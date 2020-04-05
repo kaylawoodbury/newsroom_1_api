@@ -9,7 +9,7 @@ RSpec.describe 'POST /articles', type: :request do
   let(:user_headers) do
     { HTTP_ACCEPT: "application/json" }.merge!(user_credentials)
   end
-
+  let(:location) { FactoryBot.create(:location) }
   let(:image) do
     {
       type: 'application/jpg',
@@ -29,7 +29,8 @@ RSpec.describe 'POST /articles', type: :request do
             content: 'Oliver hates it',
             category: 'latest_news',
             image: image,
-            premium: "true"
+            premium: "true",
+            location_id: location.id
           },
         },
         headers: journalist_headers

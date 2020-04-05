@@ -16,11 +16,11 @@ RSpec.describe  Api::LocationsController, type: :request do
       end
     end
 
-    it 'returns a collection of locations' do
-      get '/api/locations', headers: headers
-      binding.pry
-      expect(json_response.length).to eq 
-    end
+    # it 'returns a collection of locations' do
+    #   get '/api/locations', headers: headers
+    #   binding.pry
+    #   expect(json_response.length).to eq 
+    # end
     
 
     it 'returns 200 response' do
